@@ -1,0 +1,42 @@
+.board
+{
+    display: grid;
+    grid-template-columns: 182px 182px 182px;
+    grid-gap: 0px;
+}
+
+square-item
+{
+    border: 1px white solid;
+    height: 182px;
+}
+
+@media only screen and (max-width: 720px) {
+    .board
+    {
+        display: grid;
+        grid-template-columns: 142px 142px 142px;
+        grid-gap: 0px;
+    }
+
+    square-item
+    {
+        border: 1px white solid;
+        height: 142px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .board
+    {
+        display: grid;
+        grid-template-columns: 112px 112px 112px;
+        grid-gap: 0px;
+    }
+
+    square-item
+    {
+        border: 1px white solid;
+        height: 112px;
+    }
+}

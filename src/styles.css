@@ -1,1 +1,62 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+html, body { height: 100%; }
+body { 
+    margin: 0; 
+    background-color: #002B5B;
+    font-family: 'Itim', cursive;
+}
+
+*
+{
+    color: white;
+}
+
+.square
+{
+    height: 180px; 
+    width: 180px; 
+    border: 0px;
+    color: white; 
+    font-size: 65px;
+}
+
+.empty
+{
+    background-color: #2B4865; 
+}
+
+.X
+{
+    background-color: #256D85;
+}
+
+.O
+{
+    background-color: #607EAA;
+}
+
+
+@media only screen and (max-width: 720px) {
+    .square
+    {
+        height: 140px; 
+        width: 140px; 
+        border: 0px;
+        color: white; 
+        font-size: 50px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .square
+    {
+        height: 110px; 
+        width: 110px; 
+        border: 0px;
+        color: white; 
+        font-size: 40px;
+    }
+}

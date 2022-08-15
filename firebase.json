@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "tic-tac-toe-pwa-game",
+    "public": "dist/tictactoe",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
