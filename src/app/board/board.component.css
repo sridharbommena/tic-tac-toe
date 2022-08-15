@@ -3,12 +3,14 @@
     display: grid;
     grid-template-columns: 182px 182px 182px;
     grid-gap: 0px;
+    transition-duration: 0.3s;
 }
 
 square-item
 {
     border: 1px white solid;
     height: 182px;
+    transition-duration: 0.3s;
 }
 
 @media only screen and (max-width: 720px) {

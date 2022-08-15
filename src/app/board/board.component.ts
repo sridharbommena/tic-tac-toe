@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilityService } from '../utility/utility.service';
 
 @Component({
   selector: 'app-board',
@@ -11,8 +12,10 @@ export class BoardComponent implements OnInit {
   winner:string | null | undefined;
   isXnext:boolean | undefined;
   isDisabled:boolean = false;
+  computerThinikingText:string = "Thinking for next move...";
+  showComputerThinkingText:boolean = false;
 
-  constructor() { }
+  constructor(private utility:UtilityService) { }
 
   ngOnInit(): void {
     this.initNewGame();
@@ -26,16 +29,22 @@ export class BoardComponent implements OnInit {
     this.isDisabled = false;
   }
 
-  get player()
+  get userPlayer()
   {
-    return this.isXnext? 'X' : 'O';
+    return 'X';
+  }
+
+  get computerPlayer()
+  {
+    return 'O';
   }
 
   makeMove(id:number)
   {
+    this.isDisabled = true;
     if(!this.squareItems![id])
     {
-      this.squareItems?.splice(id,1, this.player);
+      this.squareItems?.splice(id,1, this.userPlayer);
       this.isXnext = !this.isXnext;
     }
     this.winner = this.calculateWinner();
@@ -43,7 +52,26 @@ export class BoardComponent implements OnInit {
     if( this.squareItems!.every(value => value != null) && !this.winner )
     {
       console.log("tie!");
-      this.winner = "it's a tie!"
+      this.winner = " It's a tie!"
+    }
+
+    this.showComputerThinkingText = true;
+    setTimeout(()=>
+    {
+      this.makeComputerMove();
+      this.isDisabled = false;
+      this.showComputerThinkingText = false;
+    },1000);
+
+    
+  }
+
+  makeComputerMove()
+  {
+    if(!this.winner)
+    {
+      this.squareItems![this.utility.decideComputerMove(this.squareItems)] = this.utility.computerMove;
+      this.winner = this.calculateWinner();
     }
   }
 
@@ -72,8 +100,13 @@ export class BoardComponent implements OnInit {
        )
        
       {
-        this.isDisabled=true;
-        return this.squareItems![a];
+        this.isDisabled = true;
+        if(this.squareItems![a]==this.userPlayer)
+            return " You!";
+        else if(this.squareItems![a]==this.computerPlayer)
+            return " Computer!";
+        else
+          return this.squareItems![a];
       }
 
     }

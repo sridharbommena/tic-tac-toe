@@ -21,6 +21,7 @@ body {
     border: 0px;
     color: white; 
     font-size: 65px;
+    transition-duration: 1s;
 }
 
 .empty
