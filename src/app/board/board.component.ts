@@ -53,6 +53,7 @@ export class BoardComponent implements OnInit {
     {
       console.log("tie!");
       this.winner = " It's a tie!"
+      this.showComputerThinkingText = false;
     }
 
     this.showComputerThinkingText = true;
