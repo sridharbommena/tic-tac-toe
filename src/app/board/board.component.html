@@ -1,7 +1,6 @@
 
-<h5 >Your Move: {{userPlayer}} | Computer Move: {{computerPlayer}} 
-        <p style="display: inline;" *ngIf="showComputerThinkingText">| {{computerThinikingText}}</p>
-</h5>
+<h5 >Your Move: {{userPlayer}} | Computer Move: {{computerPlayer}} </h5>
+        <p style="display: inline;" *ngIf="showComputerThinkingText"> {{computerThinikingText}}</p>
 <h5 *ngIf="winner">Winner: {{winner}}</h5>
 
 <button style="display: block;" class="btn btn-info" (click)="initNewGame()">Start new Game</button>
