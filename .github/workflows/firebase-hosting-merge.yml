@@ -17,9 +17,8 @@ jobs:
           node-version: '16.16.0'
       - run: 'npm install'
       - run: 'npm run build:prod'
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - uses: w9jds/firebase-action@master
         with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_UPLOAD_PROJECT_FIREBASE }}'
-          channelId: live
-          projectId: upload-project-firebase
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_UPLOAD_PROJECT_FIREBASE }}
